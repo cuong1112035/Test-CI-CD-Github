@@ -18,7 +18,7 @@ jobs:
   flutter_test_and_analyze:
     name: Cuong run flutter test and analyze
 #    system want to run on
-    runs-on: [self-hosted, linux, x64]
+    runs-on: ubuntu-latest
 #     steps that this workflow should do
     steps:
 #      checkout the repo (clone the repo)

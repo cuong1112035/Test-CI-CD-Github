@@ -6,7 +6,7 @@ on:
 #    define branches that PRs should should be landed on
     branches:
       -develop
-#  Triggers the workflow on push
+#  Triggers the workflow on push (optional)
   push:
     branches:
       - develop

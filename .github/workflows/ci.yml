@@ -1,0 +1,35 @@
+name: CI
+
+on:
+#  Triggers the workflow on pull request
+  pull_request:
+#    define branches that PRs should should be landed on
+    branches:
+      -develop
+#  Triggers the workflow on push
+  push:
+    branches:
+      - develop
+      - feature
+      - hotfix
+
+jobs:
+#  Define workflow
+  flutter_test_and_analyze:
+    name: Cuong run flutter test and analyze
+#    system want to run on
+    runs-on:
+      - self-hosted
+      - linux
+      - x64
+#     steps that this workflow should do
+    steps:
+#      checkout the repo (clone the repo)
+      - uses: actions/checkout@v2
+#       specify actions want to run for flutter (these actions are created subosito)
+      - uses: subosito/flutter-action@v1
+          with:
+            channel: 'stable'
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
